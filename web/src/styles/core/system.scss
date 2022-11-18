@@ -1,0 +1,48 @@
+body {
+	background-color: $color-black;
+	color: $color-white;
+}
+
+%anchor-violet {
+	color: $color-eletric-violet;
+	text-decoration-line: underline;
+	transition: 0.32s;
+
+	&:hover {
+		filter: brightness(1.1);
+	}
+}
+
+%card-button {
+	border: solid 1px $color-white;
+	transition: 0.32s;
+
+	&:hover {
+		color: $color-black;
+		background-color: $color-white;
+		box-shadow: 3px 3px 0px $color-eletric-violet;
+		border-color: $color-black;
+	}
+
+	&:active {
+		background-color: $color-gallery;
+		box-shadow: none;
+	}
+}
+
+%card-button-inverted {
+	transition: 0.32s;
+	color: $color-black;
+	background-color: $color-white;
+
+	&:hover {
+		border: solid 1px $color-black;
+		box-shadow: 3px 3px 0px $color-eletric-violet;
+		border-color: $color-black;
+	}
+
+	&:active {
+		background-color: $color-gallery;
+		box-shadow: none;
+	}
+}

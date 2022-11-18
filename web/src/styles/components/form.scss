@@ -1,0 +1,91 @@
+form {
+	animation: fade-in-animation 0.3s linear;
+	animation-fill-mode: forwards;
+
+	.form__label {
+		display: block;
+		margin-bottom: 2.2rem;
+
+		&__input-default {
+			width: 100%;
+			height: 4.5rem;
+			background-color: $color-black;
+			border: solid 0.1rem $color-white;
+			padding-left: 2rem;
+			color: $color-white;
+			font-size: 1.4rem;
+			max-width: 28.5rem;
+			transition: 0.32s;
+
+			&:focus {
+				border-width: 2px;
+				box-shadow: 3px 3px 0px $color-eletric-violet;
+			}
+			&:disabled {
+				opacity: 0.6;
+			}
+
+			&[type="text"] {
+				text-transform: lowercase;
+			}
+
+			&::placeholder {
+				text-transform: none;
+				color: $color-white;
+			}
+		}
+	}
+
+	.form__button-default {
+		@extend %center;
+		gap: 1.052rem;
+
+		text-transform: uppercase;
+
+		width: 100%;
+		max-width: 28.5rem;
+		height: 3.4rem;
+
+		background: $color-white;
+		box-shadow: 3px 3px 0px $color-eletric-violet;
+
+		font-style: normal;
+		font-weight: 700;
+		font-size: 1.34rem;
+		color: $color-black;
+
+		transition: 0.32s;
+
+		&:active {
+			background-color: $color-gallery;
+			box-shadow: 0px 0px 0px $color-eletric-violet;
+			border: none;
+		}
+
+		&::before {
+			content: "";
+			position: static;
+			display: block;
+			width: 0;
+			height: 1px;
+			background-color: $color-black;
+			transition: 0.32s;
+		}
+
+		&:hover {
+			border: solid 1px black;
+
+			&::before {
+				width: 3rem;
+			}
+		}
+	}
+
+	.form__error-message {
+		text-transform: uppercase;
+		color: $color-danger;
+		display: block;
+		margin-top: 1rem;
+		font-size: 1rem;
+	}
+}

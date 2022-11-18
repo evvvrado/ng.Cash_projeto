@@ -1,0 +1,16 @@
+@keyframes fade-in-animation {
+	0% {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes infinite-rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}

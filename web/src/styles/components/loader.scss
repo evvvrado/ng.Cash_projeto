@@ -1,0 +1,9 @@
+.page-loader {
+	@extend %center;
+
+	img {
+		animation: infinite-rotate 3s infinite linear;
+		width: 2.4rem;
+		height: 2.4rem;
+	}
+}

@@ -1,0 +1,96 @@
+.dashboard-page {
+	@include padding-y(6rem);
+
+	&__header,
+	&__main__user-info {
+		@include flex(row, center, space-between);
+	}
+
+	&__header {
+		margin-bottom: 8rem;
+
+		&__logout {
+			@extend %card-button;
+			padding: 1rem;
+			border-radius: 1rem;
+			line-height: 100%;
+		}
+	}
+
+	&__main {
+		&__user-info {
+			width: 100%;
+			&__content {
+				@include flex(row, flex-start, flex-start, 5.6rem);
+
+				&__picture {
+					@extend %center;
+					width: 13.4rem;
+					height: 13.4rem;
+					border: solid 1px $color-white;
+					border-radius: 1.5rem;
+				}
+
+				&__text {
+					p {
+						font-size: 1.6rem;
+						max-width: 15.2rem;
+						margin-bottom: 1.5rem;
+
+						strong {
+							font-weight: bold;
+						}
+					}
+
+					&__cash {
+						display: inline-block;
+						font-size: 2.4rem;
+						padding: 0.5rem 2.5rem;
+						border: solid 1px $color-white;
+						border-radius: 0.5rem;
+						font-weight: bold;
+					}
+				}
+			}
+
+			&__button {
+				@extend %card-button-inverted;
+
+				@include flex(column, center, center, 0.8rem);
+
+				font-weight: bold;
+				text-align: center;
+				font-size: 1.4rem;
+
+				width: 13.4rem;
+				height: 13.4rem;
+				border-radius: 1.5rem;
+			}
+		}
+
+		&__transferencia {
+			margin-top: 8rem;
+
+			form {
+				width: 100%;
+				.form__label {
+					&__input-default {
+						width: 100%;
+						max-width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	& > .page-loader {
+		@extend %center;
+
+		z-index: z("splash");
+		position: fixed;
+		inset: 0;
+
+		width: 100vw;
+		height: 100vh;
+	}
+}
