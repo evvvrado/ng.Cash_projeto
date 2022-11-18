@@ -11,7 +11,6 @@ import Listagem from "../sections/Index/Listagem"
 
 function Index() {
 	const { isLoader, handleLogout, handleGetUserInfo, user } = useContext(Context)
-	const [selectedTab, setSelectedTab] = useState(0)
 
 	const getUserInfo = async function () {
 		return await handleGetUserInfo()

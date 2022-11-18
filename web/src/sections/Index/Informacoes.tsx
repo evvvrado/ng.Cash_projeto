@@ -29,10 +29,10 @@ function Informacoes() {
 				</div>
 			</div>
 
-			<button className="dashboard-page__main__user-info__button">
+			{/* <button className="dashboard-page__main__user-info__button">
 				<CurrencyDollar size={53} />
 				<span>realizar transferência</span>
-			</button>
+			</button> */}
 		</div>
 	)
 }

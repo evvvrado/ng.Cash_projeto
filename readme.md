@@ -4,7 +4,7 @@
 
 ## | 💸 Projeto simulando um sistema de transações financeiras
 
-O objetivo desses projeto é demonstrar a minha capacidade atráves do processo seletivo fornecido pela [ng.Cash](https://ng.cash). Mas, para funcionar, é necessário a instação prévia de certas aplicações, como: [Node.js](https://nodejs.org/en/), [Docker](https://www.docker.com).
+O objetivo desses projeto é demonstrar a minha capacidade atráves do processo seletivo fornecido pela [ng.Cash](https://ng.cash). Mas, para funcionar, é necessário a instalação prévia de certas aplicações, como: [Node.js](https://nodejs.org/en/), [Docker](https://www.docker.com).
 
 ## | 🚀 Estrutura de pastas
 
@@ -44,10 +44,10 @@ O front-end é o que usuário utilizará como ferramenta, para então, atingir o
 
 ## | 💻 Rodar projeto
 
-Depois de realizar as instações necessáris, para rodar o projeto na sua máquina, você deve seguir os seguintes passos.
+Depois de realizar as instalações necessárias, para rodar o projeto na sua máquina, você deve seguir os seguintes passos.
 <br><br>
 
-<strong>1: Configurar Environament</strong><br>
+<strong>1: Configurar Environment</strong><br>
 Para isso, acesse a pasta <strong>/server</strong>, e nela crie um arquivo .env com as credencias do banco de dados utilizando o exemplo a baixo.
 
 ```
