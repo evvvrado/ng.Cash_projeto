@@ -25,7 +25,11 @@ const schema = yup
 		password: yup
 			.string()
 			.required("Esse campo é obrigatório")
-			.min(8, "Digite uma senha mais longa"),
+			.min(8, "Digite uma senha mais longa")
+			.matches(
+				/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+				"É necessário ter:Um caráctere em maiúsculo, Um número, E um caráctere especial."
+			),
 	})
 	.required()
 

@@ -6,36 +6,34 @@ import { Context } from "../../context/AuthContext"
 
 function Listagem() {
 	const { handleGetTransactions, userTransactions } = useContext(Context)
-	const [filter, setFilter] = useState(0)
-	const [date, setDate] = useState(Date)
+	const [filter, setFilter] = useState({ inOut: 0, date: "" })
 
 	const getTransactions = async function () {
 		return await handleGetTransactions()
 	}
 
 	const handleSetFilter = function (element: any) {
-		switch (filter) {
-			case 1:
-				return element.cashIn
-			case 2:
-				return !element.cashIn
-			case 3:
-				const filterDate = new Date(date)
-				const elementDate = new Date(element.createdAt.replace(" ", "T"))
-				const verify =
-					filterDate.getDay() + 1 == elementDate.getDay() &&
-					filterDate.getMonth() == elementDate.getMonth() &&
-					filterDate.getFullYear() == elementDate.getFullYear()
+		var filtersOptions = true
 
-				return verify
+		if (filter.date.length) {
+			const filterDate = new Date(filter.date)
+			const elementDate = new Date(element.createdAt.replace(" ", "T"))
+			const verify =
+				filterDate.getDay() + 1 == elementDate.getDay() &&
+				filterDate.getMonth() == elementDate.getMonth() &&
+				filterDate.getFullYear() == elementDate.getFullYear()
 
-			default:
-				return true
+			filtersOptions = filtersOptions && verify
 		}
-	}
 
-	const handleSetDate = function (event: any) {
-		setDate(event.target.value)
+		if (filter.inOut == 1) filtersOptions = filtersOptions && element.cashIn
+
+		if (filter.inOut == 2) filtersOptions = filtersOptions && !element.cashIn
+
+		return filtersOptions
+	}
+	const handleResetFilter = function () {
+		setFilter({ date: "", inOut: 0 })
 	}
 
 	useEffect(() => {
@@ -49,32 +47,36 @@ function Listagem() {
 					<div className="dashboard-page__transactions__title__text">atividades:</div>
 					<div className="dashboard-page__transactions__title__filter">
 						<label>
-							<input type="date" onChange={handleSetDate} />
-							<button
-								onClick={() => setFilter(3)}
-								className={filter == 3 ? "active" : ""}
-							>
+							<input
+								type="date"
+								id="filter-date"
+								value={filter.date}
+								onChange={(event) =>
+									setFilter({ ...filter, date: event.target.value })
+								}
+							/>
+							<button className={filter.date ? "active" : ""}>
 								<CalendarBlank size={22} />
 							</button>
 						</label>
 
 						<button
-							onClick={() => setFilter(2)}
-							className={filter == 2 ? "active" : ""}
+							onClick={() => setFilter({ ...filter, inOut: 2 })}
+							className={filter.inOut == 2 ? "active" : ""}
 						>
 							<picture>
 								<ArrowUpLeft size={22} />
 							</picture>
 						</button>
 						<button
-							onClick={() => setFilter(1)}
-							className={filter == 1 ? "active" : ""}
+							onClick={() => setFilter({ ...filter, inOut: 1 })}
+							className={filter.inOut == 1 ? "active" : ""}
 						>
 							<picture>
 								<ArrowDownRight size={22} />
 							</picture>
 						</button>
-						<button onClick={() => setFilter(0)}>
+						<button onClick={handleResetFilter}>
 							<picture>
 								<Eraser size={22} />
 							</picture>
